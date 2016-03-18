@@ -1,0 +1,26 @@
+{
+  "name": "cygni-mashup-rxjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "babel src/ --out-dir lib/",
+    "start": "node lib/api.js",
+    "watch": "babel --watch src/ --out-dir lib/"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-plugin-transform-async-to-generator": "^6.5.0"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "lodash": "^4.5.1",
+    "morgan": "^1.7.0",
+    "superagent": "^1.7.2",
+    "superagent-logger": "^1.1.0",
+    "superagent-rx":"0.3.0",
+    "rx": "^4.1.0"
+  }
+}
