@@ -1,8 +1,10 @@
 # Bygg/installation etc
-Här hittar du en es7-lösning på Cygnis rekryteringstest "Mashup". Lite experimentella features osv.
+RxJS-baserad lösning på Cygnis rekryteringstest "Mashup".
+
+Använder superagent-rx för att göra request som "returnerar" Rx.Observable.
 
 ```bash
 npm install
 npm start
 ```
-Under utveckling körs `npm run watch` för att kontinuerligt bygga med babel (es7).
+
