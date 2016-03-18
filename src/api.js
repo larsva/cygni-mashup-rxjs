@@ -21,7 +21,7 @@
                 function onNext(response) {
                   let mbData = response.body;
                   Rx.Observable
-                    .merge([wiki.fetch(mb.extractWikipediaName(mbData))].concat(mb.extractReleaseGroups(mbData).map(rg => coverArt.fetch(rg))))
+                    .merge(Rx.Scheduler.default,[wiki.fetch(mb.extractWikipediaName(mbData))].concat(mb.extractReleaseGroups(mbData).map(rg => coverArt.fetch(rg))))
                       .subscribe(
                         function onNext(data) {
                             mashupResult.addResultData(data);
