@@ -9,34 +9,30 @@
     let Rx = require('rx');
     let MashupResult = require('./mashup-result');
 
+    let handleMbResponse = (response,mbId,res) => {
+      let mbData = response.body;
+      let mashupResult = new MashupResult();
+      Rx.Observable
+        .merge(Rx.Scheduler.default,[wiki.fetch(mb.extractWikipediaName(mbData))].concat(mb.extractReleaseGroups(mbData).map(rg => coverArt.fetch(rg))))
+          .subscribe(
+            (data) => { mashupResult.addResultData(data)},
+            (error)  => { console.log('Error ', error)},
+            () => { res.json(createResult(mbId,mashupResult.description,mashupResult.albums))}
+          )
+    };
+
     let createResult = (mbid, description, albums) => ({id: mbid, biography: description, albums: albums});
+
     app.use(morgan(configuration.logType));
     app.get('/:mbid', async function (req, res) {
         try {
-            let mashupResult = new MashupResult();
-            let mbId = req.params.mbid;
-             mb
-              .fetch(mbId)
+          let mbId = req.params.mbid;
+          mb
+            .fetch(mbId)
               .subscribe(
-                function onNext(response) {
-                  let mbData = response.body;
-                  Rx.Observable
-                    .merge(Rx.Scheduler.default,[wiki.fetch(mb.extractWikipediaName(mbData))].concat(mb.extractReleaseGroups(mbData).map(rg => coverArt.fetch(rg))))
-                      .subscribe(
-                        function onNext(data) {
-                            mashupResult.addResultData(data);
-                        },
-                        function onError(err) {
-                          console.log('Error ', err);
-                        },
-                        function onComplete() {
-                          res.json(createResult(mbId,mashupResult.description,mashupResult.albums));
-                        }
-                      )
-                },
-                function onError(e) {
-                  res.status(e.status || 500).json(JSON.parse(e.response.text));
-                })
+                (response) => {handleMbResponse(response,mbId,res)},
+                (error) => {res.status(error.status || 500).json(JSON.parse(error.response.text))}
+              )
         } catch(e) {
             console.log('error: ',e);
             res.status(e.status || 500).json({error: e});
@@ -44,5 +40,6 @@
     });
 
     app.listen(configuration.port, () => console.log(`App listening on port ${configuration.port}`));
+
 })(require('express')());
 
