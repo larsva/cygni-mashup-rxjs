@@ -1,10 +1,10 @@
 'use strict';
 
 let jsonQ = require('jsonq');
-let jsonTraverser = require('../scripts/json-traverser.js');
+let jsonTraverser = require('../src/server/json-traverser.js');
 
 jest.unmock('jsonq');
-jest.unmock('../scripts/json-traverser');
+jest.unmock('../src/server/json-traverser');
 
 let mbData = {
   "type": "Group",

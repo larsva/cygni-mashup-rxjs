@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+        title Mashup App
+        meta(name='description' content='A small mashup written using the Angular 2 beta')
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width,initial-scale=1.0')
+        style.
+            body {
+                font-family: Arial;
+            }
+            .loading {
+                padding-top: 15px;
+                font-size: 36px;
+                font-family: Arial;
+                text-align: center;
+            }
+    body
+        mashup-app
+            .loading(style='margin-top: 30px;') Loading...
+        script(src="/bundle.js")
