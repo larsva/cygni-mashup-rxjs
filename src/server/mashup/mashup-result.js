@@ -2,7 +2,8 @@
 
 class MashupResult {
 
-  constructor() {
+  constructor(mbId) {
+    this._mbId =mbId;
     this._albums = [];
   }
 
@@ -22,13 +23,16 @@ class MashupResult {
     if ('description' === data.key) {
       this._description = data.content;
     } else if ('album' === data.key) {
- //     console.log('Album for ',data.content.id,' received');
+      //     console.log('Album for ',data.content.id,' received');
       this._albums.push(data.content);
     } else {
       console.log('Unknown key in ',data);
     }
   }
 
+  createResult() {
+    return {id: this._mbId, biography: this._description, albums: this._albums}
+  }
 }
 
 module.exports = MashupResult;

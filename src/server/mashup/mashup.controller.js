@@ -7,30 +7,37 @@ let coverArt = require('../clients/coverart-client');
 let MashupResult = require('./mashup-result');
 let json = require('../common/json-traverser');
 
-let handleMbResponse = (response,mbId,res) => {
+let lookupDescriptionAndCoverArts = (mbData) => {
+  return [wiki.fetch(json.scrapeWikipediaName(mbData))]
+    .concat(json.extractReleaseGroups(mbData).value().map(rg => coverArt.fetch(rg)));
+};
+
+let handleSuccess = (response,mbId,res) => {
   let mbData = response.body;
-  let mashupResult = new MashupResult();
+  let mashupResult = new MashupResult(mbId);
 
   Rx.Observable
-    .merge(Rx.Scheduler.default,[wiki.fetch(json.scrapeWikipediaName(mbData))].concat(json.extractReleaseGroups(mbData).value().map(rg => coverArt.fetch(rg))))
+    .merge(Rx.Scheduler.default,lookupDescriptionAndCoverArts(mbData))
     .subscribe(
       (data) => { mashupResult.addResultData(data)},
       (error)  => { console.log('Error ', error)},
-      () => { res.json(createResult(mbId,mashupResult.description,mashupResult.albums))}
+      () => { res.json(mashupResult.createResult())}
     )
 };
 
-let createResult = (mbid, description, albums) => ({id: mbid, biography: description, albums: albums});
+let handleError = (error,res)=> {
+  res.status(error.status || 500).json(JSON.parse(error.response.text));
+};
 
-module.exports.mashup = async function(req,res) {
+module.exports.lookup = async function(req,res) {
   try {
     //noinspection JSUnresolvedVariable
     let mbId = req.params.mbid;
     mb
       .fetch(mbId)
       .subscribe(
-        (response) => {handleMbResponse(response,mbId,res)},
-        (error) => {res.status(error.status || 500).json(JSON.parse(error.response.text))}
+        (response) => handleSuccess(response,mbId,res),
+        (error) => handleError(error, res)
       )
   } catch(e) { res.status(e.status || 500).json({error: e});}
 

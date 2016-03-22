@@ -1,0 +1,16 @@
+nav.navbar.navbar-inverse.navbar-fixed-top
+    .container-fluid
+        .navbar-header
+           a.navbar-brand Cygni mashup
+        #navbar.navbar-collapse.collapse.in(aria-expanded="true")
+           ul.nav.navbar-nav.navbar-right
+            li
+               a About
+.container-fluid
+    .row
+        .col-sm-3.col-md-2.sidebar
+            ul.nav.nav-sidebar
+                li(*ngFor="#artist of artists")
+                    a((click)="onSelect(artist)") {{artist.name}}
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+            mashup-view([selectedArtist]="selectedArtist")

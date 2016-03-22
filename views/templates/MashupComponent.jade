@@ -1,11 +1,11 @@
-.header
-    h3 Cygni Mashup
-.container
-    div <b>Biography</b>
-    <div [innerHtml]="mashup.biography.description"> </div>
-    div <b>Albums</b>
-    div
-      div(*ngFor="var album of mashup.albums")
-        div {{album.title}}
-        div(*ngFor="var img of album.images" style="display:inline;width:200px;height:200px" )
-          img(src="{{img.image}}" style="width:200px;height:200px")
+div <b>Biography</b>
+<div [innerHtml]="mashup.biography.description"> </div>
+div <b>Albums</b>
+div
+  div(*ngFor="#album of mashup.albums")
+    div {{album.title}}
+    div(*ngIf="album.images !== 'N/A'")
+      div( *ngFor="#img of album.images" style="display:inline;width:200px;height:200px" )
+        img(src="{{img.image}}" style="width:200px;height:200px")
+    div(*ngIf="album.images === 'N/A'")
+        span "Images N/A"

@@ -3,6 +3,6 @@ let controller = require('./mashup.controller');
 
 let router = express.Router();
 
-router.get('/:mbid', controller.mashup);
+router.get('/:mbid', controller.lookup);
 
 module.exports = router;

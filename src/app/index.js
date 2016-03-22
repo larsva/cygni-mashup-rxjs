@@ -1,6 +1,7 @@
 'use strict';
 
 require('bootstrap/dist/css/bootstrap.min.css')
+require('./css/mashup.css')
 
 // Import modules without parsing with script-loader,
 // !! to override all loaders
