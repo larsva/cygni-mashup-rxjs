@@ -7,9 +7,10 @@
     "node": "5.0.0"
   },
   "scripts": {
+    "clean": "rimraf lib/*",
     "prestart": "babel src/server --out-dir lib/",
     "start": "node lib/api.js",
-    "watch": "babel --watch src/ --out-dir lib/",
+    "watch": "babel --watch src/server --out-dir lib/",
     "test": "jest",
     "babel": "babel src/server --out-dir lib",
     "babel:w": "babel -w src/server --out-dir lib",
@@ -20,22 +21,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-cli": "^6.5.1",
-    "babel-jest": "^9.0.3",
-    "babel-loader": "^6.2.2",
-    "babel-plugin-transform-async-to-generator": "^6.5.0",
+    "babel-core": "^6.7.2",
     "babel-polyfill": "^6.7.2",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-preset-stage-0": "^6.5.0",
-    "css-loader": "^0.19.0",
-    "file-loader": "^0.8.1",
-    "html-webpack-plugin": "^2.8.1",
-    "jest-cli": "^0.9.2",
-    "json-loader": "^0.5.1",
-    "raw-loader": "^0.5.1",
-    "script-loader": "^0.6.1",
-    "style-loader": "^0.13.0",
-    "webpack": "^1.12.2",
+    "jade": "^1.11.0",
     "express": "^4.13.4",
     "lodash": "^4.5.1",
     "morgan": "^1.7.0",
@@ -48,10 +36,24 @@
     "es6-promise": "3.0.2",
     "rxjs": "5.0.0-beta.2",
     "reflect-metadata": "0.1.2",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "zone": "latest"
   },
   "devDependencies": {
-    "babel-core": "^6.7.2",
-    "jade": "^1.11.0"
+    "babel-cli": "^6.5.1",
+    "babel-jest": "^9.0.3",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "rimraf": "latest",
+    "css-loader": "^0.19.0",
+    "file-loader": "^0.8.1",
+    "html-webpack-plugin": "^2.8.1",
+    "jest-cli": "^0.9.2",
+    "json-loader": "^0.5.1",
+    "raw-loader": "^0.5.1",
+    "script-loader": "^0.6.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.2"
   }
 }

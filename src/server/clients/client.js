@@ -1,6 +1,6 @@
 "use strict";
 
-let configuration = require('./configuration');
+let configuration = require('../common/configuration');
 let agent = require('superagent');
 let logger = require('superagent-logger');
 let superagentRx = require('superagent-rx');

@@ -5,7 +5,7 @@ import {MashupService} from './MashupService'
 
 class MashupComponent {
   constructor(mashupService) {
-    this.mashup = {};
+    this.mashup = {biography: {description: ''}};
     this.mashupService = mashupService;
     this.mashupService.getMashup('5b11f4ce-a62d-471e-81fc-a69a8278c7da')
       // Rxjs, we subscribe to the response

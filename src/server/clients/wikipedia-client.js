@@ -1,7 +1,7 @@
 "use strict";
 
 let client = require("./client");
-let json = require('./json-traverser');
+let json = require('../common/json-traverser');
 let Rx = require('rx');
 
 let queryParameters = ((name) => ({ action: 'query', format: 'json', prop: 'extracts', exintro: 'true', redirects: 'true', titles: name }));
