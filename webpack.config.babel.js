@@ -21,6 +21,9 @@ let config = {
       {
         test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, // Use the file-loader for fonts
         loaders: ['file-loader']
+      },
+      {
+        test: /\.jade$/, loader: 'raw!jade-html'
       }
     ]
   }

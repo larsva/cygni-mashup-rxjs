@@ -1,7 +1,14 @@
 
 import {Component,ChangeDetectionStrategy} from 'angular2/core';
-import {HTTP_PROVIDERS} from 'angular2/http';
 import {MashupService} from './MashupService'
+
+
+@Component({
+  selector: 'mashup-view', // Tag to show app
+  templateUrl: 'templates/MashupComponent',
+  providers: [MashupService],
+  inputs:['selectedArtist']
+})
 
 class MashupComponent {
   selectedArtist;
@@ -28,15 +35,6 @@ class MashupComponent {
 
 };
 
-MashupComponent.annotations = [
-  new Component({
-    selector: 'mashup-view', // Tag to show app
-    templateUrl: 'templates/MashupComponent',
- //   changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [MashupService, HTTP_PROVIDERS],
-    inputs:['selectedArtist']
-  })
-];
 
 MashupComponent.parameters = [[MashupService]];
 

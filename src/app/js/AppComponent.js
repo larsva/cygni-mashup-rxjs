@@ -2,6 +2,13 @@
 import {Component} from 'angular2/core';
 import {MashupComponent} from './MashupComponent';
 
+
+@Component({
+  selector: 'mashup-app', // Tag to show app
+  templateUrl: 'templates/AppComponent',
+  directives:[MashupComponent]
+})
+
 class AppComponent {
   constructor() {
     this.selectedArtist = {};
@@ -16,13 +23,5 @@ class AppComponent {
     console.log('Selected artist>> ', this.selectedArtist);
   }
 };
-
-AppComponent.annotations = [
-  new Component({
-    selector: 'mashup-app', // Tag to show app
-    templateUrl: 'templates/AppComponent',
-    directives:[MashupComponent]
-  })
-];
 
 export {AppComponent};

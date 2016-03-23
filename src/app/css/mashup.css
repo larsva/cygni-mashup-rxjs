@@ -58,6 +58,7 @@ body {
 .nav-sidebar > li > a {
   padding-right: 20px;
   padding-left: 20px;
+  cursor: pointer;
 }
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
@@ -102,4 +103,16 @@ body {
 .placeholder img {
   display: inline-block;
   border-radius: 50%;
+}
+
+.biography {
+  font-size: 2em;
+  font-weight: bold;
+}
+.albums {
+  font-size: 2em;
+  font-weight: bold;
+}
+.album-title {
+  font-size: 1.5em;
 }

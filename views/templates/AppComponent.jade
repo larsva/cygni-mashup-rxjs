@@ -10,7 +10,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
     .row
         .col-sm-3.col-md-2.sidebar
             ul.nav.nav-sidebar
-                li(*ngFor="#artist of artists")
+                li(*ngFor="#artist of artists" "[class.active]"='artist === selectedArtist')
                     a((click)="onSelect(artist)") {{artist.name}}
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
             mashup-view([selectedArtist]="selectedArtist")
