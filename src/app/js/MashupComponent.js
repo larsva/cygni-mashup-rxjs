@@ -2,12 +2,10 @@
 import {Component,ChangeDetectionStrategy} from 'angular2/core';
 import {MashupService} from './MashupService'
 
-
 @Component({
   selector: 'mashup-view', // Tag to show app
   templateUrl: 'templates/MashupComponent',
-  providers: [MashupService],
-  inputs:['selectedArtist']
+  inputs:['selectedArtist'],
 })
 
 class MashupComponent {

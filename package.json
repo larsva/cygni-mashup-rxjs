@@ -21,17 +21,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jade": "^1.11.0",
     "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "jsonq": "^1.0.3",
     "lodash": "^4.5.1",
     "morgan": "^1.7.0",
+    "ng2-bootstrap": "^1.0.7",
     "superagent": "^1.7.2",
     "superagent-logger": "^1.1.0",
     "superagent-rx": "0.3.0",
-    "jsonq": "^1.0.3"
+    "systemjs": "^0.19.24",
+    "zone.js": "^0.6.5"
   },
   "devDependencies": {
-    "angular2": "2.0.0-beta.11",
+    "angular2": "2.0.0-beta.12",
     "babel-cli": "^6.5.1",
     "babel-core": "^6.7.2",
     "babel-jest": "^9.0.3",
@@ -47,16 +50,16 @@
     "es6-shim": "^0.35.0",
     "file-loader": "^0.8.1",
     "html-webpack-plugin": "^2.8.1",
+    "image-webpack-loader": "^1.6.3",
     "jade-html-loader": "0.0.3",
     "jest-cli": "^0.9.2",
     "json-loader": "^0.5.1",
     "raw-loader": "^0.5.1",
     "reflect-metadata": "0.1.2",
     "rimraf": "latest",
-    "rxjs": "5.0.0-beta.2",
+    "rxjs": "5.0.0-beta.3",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.2",
-    "zone": "latest"
+    "webpack": "^1.12.2"
   }
 }

@@ -8,7 +8,8 @@ nav.navbar.navbar-inverse.navbar-fixed-top
                a About
 .container-fluid
     .row
-        .col-sm-3.col-md-2.sidebar
+        .col-sm-3.col-md-2.sidebar.artists-sidebar
+            progressbar(*ngIf="loadingState|async" "[max]"="max" "[value]"="loadingProgress|async")
             ul.nav.nav-sidebar
                 li(*ngFor="#artist of artists" "[class.active]"='artist === selectedArtist')
                     a((click)="onSelect(artist)") {{artist.name}}

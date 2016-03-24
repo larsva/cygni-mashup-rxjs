@@ -1,17 +1,22 @@
-import {Inject,Injectable} from 'angular2/core'; // Allows us to inject a dependency into a module that's not a component
+import {Inject,Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
-import 'rxjs/add/operator/map' // Allows us to map the HTTP response from raw to JSON format
+import 'rxjs/add/operator/map';
+import {Observable } from 'rxjs/Observable';
 
 @Injectable()
 class MashupService {
   constructor(http) {
     this.http = http;
+    this.loadingChange = new Observable((observer) => this._observer = observer);
   }
+
   getMashup(mbId) {
+    this._observer.next(true);
     return this.http.get('/mashup/' + mbId)
       .map((res) => {
+        this._observer.next(false);
         return JSON.parse(res._body);
-      });
+       });
   }
 
 }

@@ -105,6 +105,13 @@ body {
   border-radius: 50%;
 }
 
+.artists-sidebar {
+  padding: 0;
+}
+.artists-sidebar > ul {
+  padding-left:20px;
+}
+
 .biography {
   font-size: 2em;
   font-weight: bold;
