@@ -3,7 +3,7 @@
 import path from 'path'; // Join paths with the right type of slash
 
 let config = {
-  entry: ['babel-polyfill',path.join(__dirname, 'src/app', 'index.js')],
+  entry: ['babel-polyfill',path.join(__dirname, 'src/app/js', 'index.js')],
   devtool: 'source-map',
   output: {
     path: path.join(__dirname, 'public'),

@@ -1,6 +1,6 @@
 
-import {Component,ChangeDetectionStrategy} from 'angular2/core';
-import {MashupService} from './MashupService'
+import {Component} from 'angular2/core';
+import {MashupService} from '../services/MashupService'
 
 @Component({
   selector: 'mashup-view', // Tag to show app

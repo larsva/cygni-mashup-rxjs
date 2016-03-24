@@ -1,7 +1,7 @@
 import {bootstrap} from 'angular2/platform/browser'; // Angular magic to bootstrap the application in a web browser
 import {HTTP_PROVIDERS} from 'angular2/http';
-import {MashupService} from './MashupService';
-import {AppComponent} from './AppComponent';
+import {MashupService} from './services/MashupService';
+import {AppComponent} from './components/AppComponent';
 import {enableProdMode} from 'angular2/core';
 
 let boot = document.addEventListener('DOMContentLoaded', () => {

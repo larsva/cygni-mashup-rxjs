@@ -1,7 +1,8 @@
 import {Inject,Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
 import 'rxjs/add/operator/map';
-import {Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import {Observable } from 'rxjs/Rx';
 
 @Injectable()
 class MashupService {
@@ -13,10 +14,14 @@ class MashupService {
   getMashup(mbId) {
     this._observer.next(true);
     return this.http.get('/mashup/' + mbId)
-      .map((res) => {
+       .map((res) => {
         this._observer.next(false);
         return JSON.parse(res._body);
-       });
+       })
+      .catch((e) => {
+        this._observer.next(false);
+        return Observable.throw(e.json().error || 'Server error');
+      });
   }
 
 }

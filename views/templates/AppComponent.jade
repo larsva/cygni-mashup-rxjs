@@ -9,7 +9,8 @@ nav.navbar.navbar-inverse.navbar-fixed-top
 .container-fluid
     .row
         .col-sm-3.col-md-2.sidebar.artists-sidebar
-            progressbar(*ngIf="loadingState|async" "[max]"="max" "[value]"="loadingProgress|async")
+            progressbar.progress-striped.active(*ngIf="loadingState|async" "[max]"="max" "[value]"="loadingProgress|async" type="success")
+            .no-progress(*ngIf="!(loadingState|async)")
             ul.nav.nav-sidebar
                 li(*ngFor="#artist of artists" "[class.active]"='artist === selectedArtist')
                     a((click)="onSelect(artist)") {{artist.name}}

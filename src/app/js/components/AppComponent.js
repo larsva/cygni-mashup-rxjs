@@ -1,6 +1,6 @@
 import {Component,EventEmitter} from 'angular2/core';
 import {MashupComponent} from './MashupComponent';
-import {MashupService} from './MashupService';
+import {MashupService} from '../services/MashupService';
 import {CORE_DIRECTIVES } from 'angular2/common';
 import {PROGRESSBAR_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 

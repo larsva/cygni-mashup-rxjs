@@ -123,3 +123,13 @@ body {
 .album-title {
   font-size: 1.5em;
 }
+
+.progress {
+  margin-bottom:0;
+  height: 10px;
+}
+
+.no-progress {
+  margin-bottom:0;
+  height: 10px;
+}
