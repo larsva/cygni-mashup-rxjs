@@ -16,7 +16,9 @@
     "babel:w": "babel -w src/server --out-dir lib",
     "webpack": "webpack",
     "webpack:w": "webpack --watch",
-    "postinstall": "npm run babel && npm run webpack"
+    "webpack:p": "webpack --profile --json > stats.json",
+    "postinstall": "npm run babel && npm run webpack",
+    "start-dev": "webpack-dev-server --config webpack.config.babel.js"
   },
   "author": "",
   "license": "ISC",
@@ -26,7 +28,7 @@
     "jsonq": "^1.0.3",
     "lodash": "^4.5.1",
     "morgan": "^1.7.0",
-    "ng2-bootstrap": "^1.0.7",
+    "ng2-bootstrap": "latest",
     "superagent": "^1.7.2",
     "superagent-logger": "^1.1.0",
     "superagent-rx": "0.3.0",
@@ -60,6 +62,7 @@
     "rxjs": "5.0.0-beta.3",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.2"
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.14.1"
   }
 }

@@ -13,6 +13,10 @@ let config = {
     loaders: [
       {
         test: /\.js$/, // Transpile all .js files from ES6 to ES5
+        include: [
+          path.resolve(__dirname, "src"),
+          path.resolve(__dirname, "__tests__")
+        ],
         loaders: ['babel-loader']
       },
       {
